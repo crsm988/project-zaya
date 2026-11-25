@@ -2,15 +2,13 @@
 
 Proiect la fizică, clasa a IX-a — **realizat de Buga Mădălina**.
 
-Site static (HTML + CSS + JavaScript, fără build) despre:
+Site static (HTML + CSS + JavaScript, fără build), cu 5 capitole:
 
-- structura ochiului și funcționarea lui ca sistem optic (refracție, lentile, convergență, acomodare);
-- defectele de vedere: miopie, hipermetropie, astigmatism, prezbiopie;
-- maladii și disfuncții: cataractă, glaucom, degenerescență maculară, retinopatie diabetică, dezlipire de retină, keratocon, strabism, ambliopie, daltonism, nictalopie, conjunctivită, ochi uscat;
-- metode de corecție (ochelari, lentile de contact, chirurgie laser) și importanța ochelarilor;
-- reguli de protecție a vederii, probleme rezolvate și un test de verificare.
-
-Elemente interactive: simulator al razelor de lumină prin ochi (cu/fără ochelari), grafic al acomodării în funcție de vârstă, calculator de dioptrii, listă de obiceiuri și test cu 10 întrebări.
+1. **Ochiul** — structură și funcționare (schemă etichetată);
+2. **Defecte de vedere** — miopie, hipermetropie, astigmatism, prezbiopie, cu simulator interactiv al razelor de lumină;
+3. **Metode de corecție** — ochelari, lentile de contact, chirurgie laser, formule și calculator de dioptrii;
+4. **Importanța ochelarilor** — beneficii, tipuri de lentile, istorie, mituri și adevăruri;
+5. **Concluzii și bibliografie**.
 
 ## Publicare pe Vercel
 

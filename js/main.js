@@ -52,7 +52,7 @@
     byId.forEach((_, id) => { const s = document.getElementById(id); if (s) io.observe(s); });
 
     /* apariție la derulare */
-    const targets = $$('.section__head, .card, .defect, .disease, .myth, .timeline, .rule2020, .stat, .problem');
+    const targets = $$('.section__head, .card, .basic, .defect, .myth, .timeline, .stat, .prose, .biblio li');
     targets.forEach(t => t.classList.add('reveal'));
     const rv = new IntersectionObserver(entries => {
       entries.forEach(e => {
@@ -60,25 +60,6 @@
       });
     }, { rootMargin: '0px 0px -8% 0px' });
     targets.forEach(t => rv.observe(t));
-  }
-
-  /* ---------------- Acomodarea în funcție de vârstă ---------------- */
-  const age = $('#age');
-  if (age) {
-    const update = () => {
-      const a = +age.value;
-      const amp = Math.max(0.5, 18.5 - 0.3 * a);          // dioptrii (Hofstetter, medie)
-      const ppCm = 100 / amp;                               // punctum proximum
-      let add = 2.5 - amp / 2;                              // 40 cm → 2,5 δ, cu jumătate din acomodare în rezervă
-      add = Math.round(add * 4) / 4;
-      $('#ageOut').textContent = a;
-      $('#ampOut').textContent = fmt(amp, 1) + ' δ';
-      $('#ppOut').textContent = ppCm >= 100 ? fmt(ppCm / 100, 1) + ' m' : Math.round(ppCm) + ' cm';
-      $('#addOut').textContent = add > 0 ? '≈ +' + fmt(add, 2) + ' δ' : 'nu sunt necesari';
-      $('#ppDot').style.left = Math.min(98, Math.max(4, ppCm)) + '%';
-    };
-    age.addEventListener('input', update);
-    update();
   }
 
   /* ---------------- Simulator optic ---------------- */
@@ -269,103 +250,4 @@
     run();
   }
 
-  /* ---------------- Filtru maladii ---------------- */
-  $$('.filter .chip').forEach(c => c.addEventListener('click', () => {
-    $$('.filter .chip').forEach(x => x.classList.remove('is-active'));
-    c.classList.add('is-active');
-    const f = c.dataset.filter;
-    $$('.disease').forEach(d => d.classList.toggle('is-hidden', f !== 'toate' && d.dataset.cat !== f));
-  }));
-
-  /* ---------------- Obiceiuri (salvate local) ---------------- */
-  const KEY = 'vedere-obiceiuri';
-  const boxes = $$('#habits input');
-  let saved = [];
-  try { saved = JSON.parse(localStorage.getItem(KEY) || '[]'); } catch (e) { saved = []; }
-  boxes.forEach(b => { if (saved.includes(b.dataset.h)) b.checked = true; });
-  const score = () => {
-    const n = boxes.filter(b => b.checked).length;
-    const pct = Math.round(n / boxes.length * 100);
-    const bar = $('#habitBar'); if (bar) bar.style.width = pct + '%';
-    const msg = $('#habitMsg');
-    if (msg) {
-      msg.textContent = n === 0 ? 'Bifează obiceiurile pe care le ai deja.'
-        : n < 5 ? `${n} din ${boxes.length} — e un început, mai sunt multe de câștigat.`
-        : n < 10 ? `${n} din ${boxes.length} — foarte bine, ochii tăi îți mulțumesc!`
-        : `${n} din ${boxes.length} — excelent! Ești un exemplu de protecție a vederii.`;
-    }
-    try { localStorage.setItem(KEY, JSON.stringify(boxes.filter(b => b.checked).map(b => b.dataset.h))); } catch (e) { /* ignorăm */ }
-  };
-  boxes.forEach(b => b.addEventListener('change', score));
-  if (boxes.length) score();
-
-  /* ---------------- Test ---------------- */
-  const QUIZ = [
-    { q: 'Din punct de vedere optic, ochiul uman se comportă ca:', o: ['o lentilă divergentă', 'o lentilă convergentă', 'o oglindă plană', 'o prismă'], a: 1,
-      e: 'Corneea și cristalinul formează un sistem convergent de aproximativ 60 δ.' },
-    { q: 'La un ochi miop, imaginea unui obiect îndepărtat se formează:', o: ['pe retină', 'în spatele retinei', 'în fața retinei', 'pe cristalin'], a: 2,
-      e: 'Ochiul miop este prea convergent (sau prea lung), deci focarul cade înaintea retinei.' },
-    { q: 'Miopia se corectează cu lentile:', o: ['convergente', 'divergente', 'cilindrice', 'fotocromatice'], a: 1,
-      e: 'Lentila divergentă scade convergența totală și mută imaginea înapoi, pe retină.' },
-    { q: 'Ce convergență are o lentilă cu distanța focală f = 50 cm?', o: ['0,5 δ', '50 δ', '2 δ', '−2 δ'], a: 2,
-      e: 'C = 1/f = 1/0,5 m = 2 m⁻¹ = 2 δ.' },
-    { q: 'Care parte a ochiului are cea mai mare contribuție la refracția luminii?', o: ['corneea', 'cristalinul', 'retina', 'irisul'], a: 0,
-      e: 'Corneea (≈ 40–43 δ), deoarece aici lumina trece din aer în țesut, cu diferența cea mai mare de indice de refracție.' },
-    { q: 'Prezbiopia apare deoarece:', o: ['globul ocular se alungește', 'corneea devine neregulată', 'cristalinul își pierde elasticitatea', 'retina se dezlipește'], a: 2,
-      e: 'Cu vârsta, cristalinul devine rigid și acomodarea scade, iar punctum proximum se îndepărtează.' },
-    { q: 'Imaginea formată pe retină este:', o: ['virtuală, dreaptă, mărită', 'reală, răsturnată, micșorată', 'reală, dreaptă, micșorată', 'virtuală, răsturnată, mărită'], a: 1,
-      e: 'Obiectul se află dincolo de dublul distanței focale, deci imaginea este reală, răsturnată și mai mică; creierul o „întoarce”.' },
-    { q: 'Unitatea de măsură a convergenței unei lentile este:', o: ['metrul', 'dioptria', 'lux-ul', 'candela'], a: 1,
-      e: '1 dioptrie (δ) = 1 m⁻¹.' },
-    { q: 'Ce boală este legată de creșterea presiunii din interiorul ochiului?', o: ['cataracta', 'conjunctivita', 'daltonismul', 'glaucomul'], a: 3,
-      e: 'Glaucomul afectează nervul optic din cauza presiunii intraoculare crescute.' },
-    { q: 'Un hipermetrop are punctum proximum la 50 cm. Ce lentilă îi trebuie pentru a citi la 25 cm?', o: ['+2 δ', '−2 δ', '+4 δ', '+0,5 δ'], a: 0,
-      e: 'C = 1/0,25 − 1/0,5 = 4 − 2 = +2 δ (lentilă convergentă).' }
-  ];
-  const quizBox = $('#quizBox');
-  if (quizBox) {
-    let i = 0, right = 0;
-    const render = () => {
-      quizBox.innerHTML = '';
-      if (i >= QUIZ.length) {
-        const pct = right / QUIZ.length;
-        const verdict = pct === 1 ? 'Perfect! Știi totul despre vedere.'
-          : pct >= .7 ? 'Foarte bine! Ai înțeles fizica ochiului.'
-          : pct >= .4 ? 'Bine, dar mai citește o dată secțiunile despre defecte și corecție.'
-          : 'Mai parcurge proiectul și încearcă din nou.';
-        quizBox.innerHTML = `<div class="quiz__result"><p>Rezultatul tău</p><div class="quiz__score">${right}/${QUIZ.length}</div><p>${verdict}</p><button class="btn btn--primary quiz__next" type="button">Reia testul</button></div>`;
-        $('.quiz__next', quizBox).addEventListener('click', () => { i = 0; right = 0; render(); });
-        return;
-      }
-      const item = QUIZ[i];
-      const wrap = document.createElement('div');
-      wrap.innerHTML = `<div class="quiz__top"><span>Întrebarea ${i + 1} din ${QUIZ.length}</span><span>Corecte: ${right}</span></div>
-        <div class="progress"><div class="progress__bar" style="width:${(i / QUIZ.length) * 100}%"></div></div>
-        <p class="quiz__q" style="margin-top:18px"></p><div class="quiz__opts"></div>`;
-      $('.quiz__q', wrap).textContent = item.q;
-      const opts = $('.quiz__opts', wrap);
-      item.o.forEach((txt, k) => {
-        const b = document.createElement('button');
-        b.type = 'button'; b.className = 'quiz__opt'; b.textContent = txt;
-        b.addEventListener('click', () => {
-          $$('.quiz__opt', opts).forEach(x => { x.disabled = true; });
-          opts.children[item.a].classList.add('is-right');
-          if (k === item.a) right++; else b.classList.add('is-wrong');
-          const fb = document.createElement('p');
-          fb.className = 'quiz__feedback';
-          fb.textContent = (k === item.a ? 'Corect! ' : 'Greșit. ') + item.e;
-          wrap.appendChild(fb);
-          const next = document.createElement('button');
-          next.type = 'button'; next.className = 'btn btn--primary quiz__next';
-          next.textContent = i + 1 < QUIZ.length ? 'Următoarea întrebare →' : 'Vezi rezultatul';
-          next.addEventListener('click', () => { i++; render(); });
-          wrap.appendChild(next);
-          next.focus();
-        });
-        opts.appendChild(b);
-      });
-      quizBox.appendChild(wrap);
-    };
-    render();
-  }
 })();

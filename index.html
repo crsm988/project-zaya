@@ -27,14 +27,10 @@
     <button class="nav-toggle" aria-expanded="false" aria-controls="meniu">Cuprins</button>
     <nav id="meniu" class="nav">
       <a href="#ochiul">Ochiul</a>
-      <a href="#optica">Optica ochiului</a>
       <a href="#defecte">Defecte de vedere</a>
-      <a href="#maladii">Maladii</a>
       <a href="#corectie">Corecția</a>
       <a href="#ochelari">Ochelarii</a>
-      <a href="#protectie">Protecția</a>
-      <a href="#probleme">Probleme</a>
-      <a href="#quiz">Test</a>
+      <a href="#concluzii">Concluzii</a>
     </nav>
   </div>
 </header>
@@ -43,11 +39,12 @@
 
 <!-- ============ COPERTĂ ============ -->
 <section id="acasa" class="hero">
+  <div class="blobs" aria-hidden="true"><span></span><span></span><span></span></div>
   <div class="hero__text">
-    <p class="eyebrow">Proiect la fizică · Clasa a IX-a · Optică</p>
-    <h1>Protecția și corecția vederii</h1>
+    <p class="eyebrow"><span>Proiect la fizică</span><span>Clasa a IX-a</span><span>Optică</span></p>
+    <h1>Protecția și <span class="grad">corecția vederii</span></h1>
     <p class="lead">Ochiul uman este un instrument optic remarcabil: o lentilă convergentă care proiectează lumea pe retină. Când acest sistem nu focalizează corect, fizica lentilelor ne ajută să-l corectăm.</p>
-    <p class="author">Realizat de <strong>Buga Mădălina</strong></p>
+    <p class="author"><span class="author__avatar" aria-hidden="true">BM</span><span>Realizat de <strong>Buga Mădălina</strong></span></p>
     <div class="hero__cta">
       <a class="btn btn--primary" href="#ochiul">Începe lectura</a>
       <a class="btn btn--ghost" href="#simulator">Simulatorul optic</a>
@@ -97,7 +94,7 @@
 </section>
 
 <!-- ============ 1. OCHIUL ============ -->
-<section id="ochiul" class="section">
+<section id="ochiul" class="section section--teal">
   <div class="container">
     <header class="section__head">
       <span class="section__num">01</span>
@@ -203,105 +200,38 @@
   </div>
 </section>
 
-<!-- ============ 2. OPTICA OCHIULUI ============ -->
-<section id="optica" class="section section--alt">
+<!-- ============ 3. DEFECTE DE VEDERE ============ -->
+<section id="defecte" class="section section--violet">
   <div class="container">
     <header class="section__head">
       <span class="section__num">02</span>
-      <h2>Ochiul ca sistem optic</h2>
-      <p>Din punct de vedere fizic, ochiul este un <strong>sistem optic convergent</strong> care formează pe retină o imagine <strong>reală, răsturnată și micșorată</strong> a obiectelor.</p>
-    </header>
-
-    <div class="grid grid--2">
-      <article class="card">
-        <h3>Refracția luminii</h3>
-        <p>Când lumina trece dintr-un mediu în altul își schimbă direcția. Legea refracției (Snell–Descartes):</p>
-        <div class="formula">n<sub>1</sub> · sin i = n<sub>2</sub> · sin r</div>
-        <p>unde <em>n</em> este indicele de refracție al mediului, <em>i</em> unghiul de incidență, iar <em>r</em> unghiul de refracție.</p>
-        <table class="table">
-          <thead><tr><th>Mediul</th><th>Indice de refracție n</th></tr></thead>
-          <tbody>
-            <tr><td>Aer</td><td>1,000</td></tr>
-            <tr><td>Corneea</td><td>1,376</td></tr>
-            <tr><td>Umoarea apoasă</td><td>1,336</td></tr>
-            <tr><td>Cristalinul</td><td>1,386 – 1,406</td></tr>
-            <tr><td>Corpul vitros</td><td>1,336</td></tr>
-          </tbody>
-        </table>
-      </article>
-
-      <article class="card">
-        <h3>Lentile și putere optică</h3>
-        <p><strong>Convergența</strong> (puterea optică) a unei lentile este inversul distanței focale:</p>
-        <div class="formula">C = 1 / f &nbsp;&nbsp; [C]<sub>SI</sub> = m<sup>−1</sup> = δ (dioptrie)</div>
-        <p><strong>Formula lentilelor subțiri</strong> (convenția de semne cartezienă):</p>
-        <div class="formula">1/x<sub>2</sub> − 1/x<sub>1</sub> = 1/f</div>
-        <p><strong>Mărirea liniară transversală:</strong></p>
-        <div class="formula">β = y<sub>2</sub> / y<sub>1</sub> = x<sub>2</sub> / x<sub>1</sub></div>
-        <p>Pentru lentile alipite, puterile se adună: <strong>C = C<sub>1</sub> + C<sub>2</sub></strong>. Acesta este principiul ochelarilor: lentila adaugă sau scade dioptrii din puterea ochiului.</p>
-        <div class="lens-legend">
-          <div><svg viewBox="0 0 60 80" aria-hidden="true"><path d="M30 4 Q46 40 30 76 Q14 40 30 4Z" class="lens-conv"/></svg><span><strong>Convergentă</strong> (f &gt; 0, C &gt; 0)<br>mai groasă la mijloc</span></div>
-          <div><svg viewBox="0 0 60 80" aria-hidden="true"><path d="M18 4 H42 Q30 40 42 76 H18 Q30 40 18 4Z" class="lens-div"/></svg><span><strong>Divergentă</strong> (f &lt; 0, C &lt; 0)<br>mai subțire la mijloc</span></div>
-        </div>
-      </article>
-    </div>
-
-    <div class="grid grid--3 mt">
-      <article class="card card--mini">
-        <h3>Acomodarea</h3>
-        <p>Capacitatea ochiului de a-și modifica puterea optică pentru a vedea clar obiecte aflate la distanțe diferite. Mușchiul ciliar se contractă → cristalinul se bombează → convergența crește.</p>
-      </article>
-      <article class="card card--mini">
-        <h3>Punctum remotum (PR)</h3>
-        <p>Cel mai îndepărtat punct văzut clar <em>fără acomodare</em>. Pentru ochiul normal (emetrop) se află la <strong>infinit</strong>.</p>
-      </article>
-      <article class="card card--mini">
-        <h3>Punctum proximum (PP)</h3>
-        <p>Cel mai apropiat punct văzut clar <em>cu acomodare maximă</em>. La un tânăr se află la ≈10–15 cm. <strong>Distanța vederii optime</strong> este δ = 25 cm.</p>
-      </article>
-    </div>
-
-    <!-- widget acomodare -->
-    <div class="card widget mt" id="acomodare">
-      <div class="widget__head">
-        <h3>Cum scade acomodarea cu vârsta</h3>
-        <p>Cristalinul își pierde elasticitatea în timp. Mută cursorul pentru a vedea amplitudinea acomodării (după formula medie a lui Hofstetter: A ≈ 18,5 − 0,3 · vârsta).</p>
-      </div>
-      <div class="widget__body">
-        <label class="slider">
-          <span>Vârsta: <output id="ageOut">15</output> ani</span>
-          <input type="range" id="age" min="8" max="75" value="15">
-        </label>
-        <div class="readouts">
-          <div class="readout"><span>Amplitudinea acomodării</span><strong id="ampOut">14,0 δ</strong></div>
-          <div class="readout"><span>Punctum proximum</span><strong id="ppOut">7 cm</strong></div>
-          <div class="readout"><span>Ochelari de citit (la 40 cm)</span><strong id="addOut">nu sunt necesari</strong></div>
-        </div>
-        <div class="pp-bar" aria-hidden="true">
-          <div class="pp-bar__track">
-            <span class="pp-bar__eye">👁</span>
-            <span class="pp-bar__mark" style="left:25%">25 cm</span>
-            <span class="pp-bar__mark" style="left:40%">40 cm</span>
-            <span class="pp-bar__dot" id="ppDot"></span>
-          </div>
-          <div class="pp-bar__scale"><span>0</span><span>50 cm</span><span>1 m</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 3. DEFECTE DE VEDERE ============ -->
-<section id="defecte" class="section">
-  <div class="container">
-    <header class="section__head">
-      <span class="section__num">03</span>
       <h2>Defecte de vedere (vicii de refracție)</h2>
       <p>Un ochi normal se numește <strong>emetrop</strong>: imaginea obiectelor îndepărtate se formează exact pe retină. Când imaginea se formează în fața sau în spatele retinei, ochiul este <strong>ametrop</strong>, iar vederea devine încețoșată.</p>
     </header>
 
+    <div class="basics">
+      <article class="basic basic--violet">
+        <h3>Convergența lentilei</h3>
+        <div class="formula">C = 1 / f &nbsp;·&nbsp; [C] = m<sup>−1</sup> = δ</div>
+        <div class="lens-legend">
+          <div><svg viewBox="0 0 60 80" aria-hidden="true"><path d="M30 4 Q46 40 30 76 Q14 40 30 4Z" class="lens-conv"/></svg><span><strong>Convergentă</strong><br>C &gt; 0, groasă la mijloc</span></div>
+          <div><svg viewBox="0 0 60 80" aria-hidden="true"><path d="M18 4 H42 Q30 40 42 76 H18 Q30 40 18 4Z" class="lens-div"/></svg><span><strong>Divergentă</strong><br>C &lt; 0, subțire la mijloc</span></div>
+        </div>
+      </article>
+      <article class="basic basic--blue">
+        <h3>Formula lentilelor subțiri</h3>
+        <div class="formula">1/x<sub>2</sub> − 1/x<sub>1</sub> = 1/f</div>
+        <p>Pentru lentile alipite, convergențele se adună: <strong>C = C<sub>1</sub> + C<sub>2</sub></strong>. Așa „adaugă” sau „scad” ochelarii dioptrii din puterea ochiului (≈ 60 δ).</p>
+      </article>
+      <article class="basic basic--pink">
+        <h3>Acomodarea</h3>
+        <p>Cristalinul își schimbă curbura ca să vadă clar la distanțe diferite.</p>
+        <p><strong>Punctum remotum (PR)</strong> — cel mai îndepărtat punct văzut clar (la ochiul normal: infinit).<br><strong>Punctum proximum (PP)</strong> — cel mai apropiat punct văzut clar (la tineri ≈ 10–15 cm).</p>
+      </article>
+    </div>
+
     <div class="defects">
-      <article class="defect">
+      <article class="defect defect--blue">
         <div class="defect__fig">
           <svg viewBox="0 0 240 120" aria-hidden="true">
             <circle cx="140" cy="60" r="62" class="d-eye d-eye--long"/>
@@ -321,7 +251,7 @@
         </ul>
       </article>
 
-      <article class="defect">
+      <article class="defect defect--amber">
         <div class="defect__fig">
           <svg viewBox="0 0 240 120" aria-hidden="true">
             <circle cx="122" cy="60" r="48" class="d-eye"/>
@@ -341,7 +271,7 @@
         </ul>
       </article>
 
-      <article class="defect">
+      <article class="defect defect--violet">
         <div class="defect__fig">
           <svg viewBox="0 0 240 120" aria-hidden="true">
             <ellipse cx="130" cy="60" rx="56" ry="48" class="d-eye"/>
@@ -360,7 +290,7 @@
         </ul>
       </article>
 
-      <article class="defect">
+      <article class="defect defect--pink">
         <div class="defect__fig">
           <svg viewBox="0 0 240 120" aria-hidden="true">
             <circle cx="130" cy="60" r="52" class="d-eye"/>
@@ -425,93 +355,11 @@
   </div>
 </section>
 
-<!-- ============ 4. MALADII ============ -->
-<section id="maladii" class="section section--alt">
-  <div class="container">
-    <header class="section__head">
-      <span class="section__num">04</span>
-      <h2>Maladii și disfuncții ale ochiului</h2>
-      <p>Pe lângă defectele de refracție (care se corectează optic), ochiul poate fi afectat de boli care necesită tratament medical. Multe dintre ele nu dor la început — de aceea controlul periodic la medicul oftalmolog este esențial.</p>
-    </header>
-
-    <div class="filter" role="tablist" aria-label="Filtrează maladiile">
-      <button class="chip is-active" data-filter="toate">Toate</button>
-      <button class="chip" data-filter="lentila">Cristalin și cornee</button>
-      <button class="chip" data-filter="retina">Retină și nerv optic</button>
-      <button class="chip" data-filter="functie">Funcționale</button>
-      <button class="chip" data-filter="suprafata">Suprafața ochiului</button>
-    </div>
-
-    <div class="diseases">
-      <article class="disease" data-cat="lentila">
-        <h3>Cataracta</h3>
-        <p>Opacifierea (încețoșarea) cristalinului, frecventă după 60 de ani. Lumina este împrăștiată în loc să fie focalizată — vederea devine ca prin geam aburit, culorile pălesc.</p>
-        <dl><dt>Factori de risc</dt><dd>vârsta, radiațiile UV, fumatul, diabetul</dd><dt>Tratament</dt><dd>operație: cristalinul opac este înlocuit cu o lentilă artificială (cristalin intraocular)</dd></dl>
-      </article>
-      <article class="disease" data-cat="retina">
-        <h3>Glaucomul</h3>
-        <p>Creșterea presiunii din interiorul ochiului distruge treptat nervul optic. Câmpul vizual se îngustează „din margini”, fără durere. Este o cauză majoră de orbire ireversibilă.</p>
-        <dl><dt>Depistare</dt><dd>măsurarea presiunii intraoculare și a câmpului vizual</dd><dt>Tratament</dt><dd>picături, laser sau operație — opresc evoluția, dar nu repară daunele</dd></dl>
-      </article>
-      <article class="disease" data-cat="retina">
-        <h3>Degenerescența maculară</h3>
-        <p>Afectarea petei galbene, legată de vârstă. Centrul imaginii devine neclar sau deformat, în timp ce vederea periferică rămâne. Cititul și recunoașterea fețelor devin dificile.</p>
-        <dl><dt>Factori de risc</dt><dd>vârsta, fumatul, ereditatea, expunerea la lumină puternică</dd><dt>Tratament</dt><dd>încetinirea evoluției prin injecții, vitamine și controale regulate</dd></dl>
-      </article>
-      <article class="disease" data-cat="retina">
-        <h3>Retinopatia diabetică</h3>
-        <p>Glicemia crescută timp îndelungat deteriorează vasele de sânge mici ale retinei. Apar hemoragii și zone cu vedere afectată.</p>
-        <dl><dt>Prevenire</dt><dd>controlul glicemiei și examinarea anuală a fundului de ochi</dd><dt>Tratament</dt><dd>laser, injecții intraoculare</dd></dl>
-      </article>
-      <article class="disease" data-cat="retina">
-        <h3>Dezlipirea de retină</h3>
-        <p>Retina se desprinde de stratul care o hrănește. Semne de alarmă: „fulgere” de lumină, „muște zburătoare” apărute brusc, o „perdea” în câmpul vizual. Este o urgență medicală.</p>
-        <dl><dt>Risc crescut</dt><dd>miopia mare, loviturile la cap sau la ochi</dd><dt>Tratament</dt><dd>laser sau intervenție chirurgicală rapidă</dd></dl>
-      </article>
-      <article class="disease" data-cat="lentila">
-        <h3>Keratoconul</h3>
-        <p>Corneea se subțiază și se bombează sub formă de con, apărând un astigmatism neregulat greu de corectat cu ochelari. Apare de obicei la adolescenți și tineri.</p>
-        <dl><dt>Factor agravant</dt><dd>frecarea puternică și repetată a ochilor</dd><dt>Tratament</dt><dd>lentile de contact rigide, cross-linking cornean, transplant de cornee</dd></dl>
-      </article>
-      <article class="disease" data-cat="functie">
-        <h3>Strabismul</h3>
-        <p>Ochii nu privesc în aceeași direcție (unul deviază spre interior, exterior, sus sau jos), din cauza unui dezechilibru al mușchilor oculari. Creierul primește două imagini diferite.</p>
-        <dl><dt>La copii</dt><dd>poate duce la ambliopie dacă nu e tratat</dd><dt>Tratament</dt><dd>ochelari, ocluzie (petic), exerciții, operație pe mușchi</dd></dl>
-      </article>
-      <article class="disease" data-cat="functie">
-        <h3>Ambliopia („ochiul leneș”)</h3>
-        <p>Un ochi vede mai slab, deși este sănătos structural, pentru că în copilărie creierul a „ignorat” imaginea lui (din cauza strabismului sau a unei diferențe mari de dioptrii).</p>
-        <dl><dt>Important</dt><dd>se tratează eficient doar în copilărie (până la ~7–9 ani)</dd><dt>Tratament</dt><dd>ochelari corecți + acoperirea ochiului „bun”</dd></dl>
-      </article>
-      <article class="disease" data-cat="functie">
-        <h3>Daltonismul</h3>
-        <p>Incapacitatea de a distinge anumite culori (de obicei roșu de verde), cauzată de lipsa sau funcționarea defectuoasă a unui tip de conuri. Este ereditar și mult mai frecvent la băieți (≈8%) decât la fete (≈0,5%).</p>
-        <dl><dt>Depistare</dt><dd>testele Ishihara (cercuri din puncte colorate)</dd><dt>Tratament</dt><dd>nu are vindecare; există ochelari cu filtre speciale care ajută parțial</dd></dl>
-      </article>
-      <article class="disease" data-cat="functie">
-        <h3>Nictalopia („orbul găinilor”)</h3>
-        <p>Vedere foarte slabă la lumină redusă, din cauza funcționării deficitare a bastonașelor. Una dintre cauze este lipsa vitaminei A, necesară pigmentului rodopsină.</p>
-        <dl><dt>Prevenire</dt><dd>alimentație bogată în vitamina A (morcovi, ficat, legume verzi)</dd><dt>Tratament</dt><dd>în funcție de cauză</dd></dl>
-      </article>
-      <article class="disease" data-cat="suprafata">
-        <h3>Conjunctivita</h3>
-        <p>Inflamația membranei transparente care acoperă albul ochiului. Ochi roșii, mâncărime, lăcrimare, secreții. Poate fi virală, bacteriană sau alergică.</p>
-        <dl><dt>Prevenire</dt><dd>spălarea mâinilor, nu împrumutăm prosoape sau machiaj</dd><dt>Tratament</dt><dd>picături prescrise de medic</dd></dl>
-      </article>
-      <article class="disease" data-cat="suprafata">
-        <h3>Sindromul ochiului uscat și „vederea digitală”</h3>
-        <p>În fața ecranelor clipim de până la 3 ori mai rar. Lacrimile se evaporă, ochii ustură, apar oboseala și vederea încețoșată temporară.</p>
-        <dl><dt>Prevenire</dt><dd>regula 20-20-20, pauze, clipit conștient, aer umidificat</dd><dt>Tratament</dt><dd>lacrimi artificiale, corectarea dioptriilor</dd></dl>
-      </article>
-    </div>
-  </div>
-</section>
-
 <!-- ============ 5. CORECȚIA ============ -->
-<section id="corectie" class="section">
+<section id="corectie" class="section section--blue">
   <div class="container">
     <header class="section__head">
-      <span class="section__num">05</span>
+      <span class="section__num">03</span>
       <h2>Metode de corecție a vederii</h2>
       <p>Toate metodele optice se bazează pe aceeași idee: <strong>modificăm convergența totală</strong> a sistemului (lentilă + ochi), astfel încât imaginea să cadă exact pe retină.</p>
     </header>
@@ -584,10 +432,10 @@
 </section>
 
 <!-- ============ 6. IMPORTANȚA OCHELARILOR ============ -->
-<section id="ochelari" class="section section--alt">
+<section id="ochelari" class="section section--pink">
   <div class="container">
     <header class="section__head">
-      <span class="section__num">06</span>
+      <span class="section__num">04</span>
       <h2>Importanța ochelarilor</h2>
       <p>Ochelarii sunt una dintre cele mai importante invenții din istorie: au prelungit viața activă a milioane de oameni, care altfel n-ar mai fi putut citi, scrie sau lucra.</p>
     </header>
@@ -649,118 +497,11 @@
   </div>
 </section>
 
-<!-- ============ 7. PROTECȚIA ============ -->
-<section id="protectie" class="section">
-  <div class="container">
-    <header class="section__head">
-      <span class="section__num">07</span>
-      <h2>Protecția vederii</h2>
-      <p>Multe probleme de vedere pot fi prevenite sau întârziate prin obiceiuri simple. Verifică ce faci deja — lista se salvează pe acest dispozitiv.</p>
-    </header>
-
-    <div class="rule2020">
-      <div class="rule2020__num"><span>20</span><span>20</span><span>20</span></div>
-      <p>La fiecare <strong>20 de minute</strong> petrecute în fața ecranului, privește timp de <strong>20 de secunde</strong> un obiect aflat la cel puțin <strong>20 de picioare</strong> (≈6 m). Mușchiul ciliar se relaxează, iar ochiul revine la acomodare zero.</p>
-    </div>
-
-    <div class="habits" id="habits">
-      <label class="habit"><input type="checkbox" data-h="1"><span><b>Ecranul la 50–70 cm</b> de ochi, cu marginea de sus la nivelul ochilor sau puțin mai jos.</span></label>
-      <label class="habit"><input type="checkbox" data-h="2"><span><b>Iluminare bună</b> la citit și lucru; evit să folosesc telefonul în întuneric complet.</span></label>
-      <label class="habit"><input type="checkbox" data-h="3"><span><b>Pauze regulate</b> și clipit conștient când lucrez la calculator.</span></label>
-      <label class="habit"><input type="checkbox" data-h="4"><span><b>1–2 ore pe zi în aer liber</b> — lumina naturală și privitul în depărtare protejează de miopie.</span></label>
-      <label class="habit"><input type="checkbox" data-h="5"><span><b>Ochelari de soare cu filtru UV400</b> vara, la mare și la munte (zăpada reflectă până la 80% din UV).</span></label>
-      <label class="habit"><input type="checkbox" data-h="6"><span><b>Nu privesc niciodată direct Soarele</b> — nici în timpul eclipselor, fără filtre speciale.</span></label>
-      <label class="habit"><input type="checkbox" data-h="7"><span><b>Ochelari de protecție</b> la laborator, la lucru cu unelte, în piscină.</span></label>
-      <label class="habit"><input type="checkbox" data-h="8"><span><b>Alimentație sănătoasă</b>: vitamina A, C, E, zinc, luteină, omega-3 (morcovi, spanac, pește, nuci, ouă).</span></label>
-      <label class="habit"><input type="checkbox" data-h="9"><span><b>Nu îmi frec ochii</b> și mă spăl pe mâini înainte să-i ating.</span></label>
-      <label class="habit"><input type="checkbox" data-h="10"><span><b>Somn suficient</b> — ochii se refac în timpul somnului.</span></label>
-      <label class="habit"><input type="checkbox" data-h="11"><span><b>Control la oftalmolog</b> o dată pe an sau imediat ce apar probleme.</span></label>
-      <label class="habit"><input type="checkbox" data-h="12"><span><b>Port corecția prescrisă</b> și nu folosesc ochelarii sau lentilele altcuiva.</span></label>
-    </div>
-    <div class="habits__score">
-      <div class="progress"><div class="progress__bar" id="habitBar"></div></div>
-      <p id="habitMsg">Bifează obiceiurile pe care le ai deja.</p>
-    </div>
-
-    <div class="callout callout--warn mt">
-      <strong>Mergi urgent la medic dacă:</strong> vederea scade brusc, vezi „fulgere” sau o „perdea” în câmpul vizual, ai durere puternică de ochi, ochiul este roșu și lăcrimează după o lovitură sau după contactul cu o substanță chimică.
-    </div>
-  </div>
-</section>
-
-<!-- ============ 8. PROBLEME ============ -->
-<section id="probleme" class="section section--alt">
-  <div class="container">
-    <header class="section__head">
-      <span class="section__num">08</span>
-      <h2>Probleme rezolvate</h2>
-      <p>Aplicații ale formulei lentilelor subțiri pentru corecția vederii (se consideră lentila alipită de ochi).</p>
-    </header>
-
-    <div class="problems">
-      <details class="problem">
-        <summary><span class="problem__n">1</span> Un elev miop vede clar obiectele până la cel mult 40 cm. Ce lentile îi trebuie?</summary>
-        <div class="problem__sol">
-          <p><b>Date:</b> d<sub>PR</sub> = 40 cm = 0,4 m. Obiectul este la infinit: x<sub>1</sub> → −∞.</p>
-          <p>Lentila trebuie să dea o imagine virtuală în PR: x<sub>2</sub> = −0,4 m.</p>
-          <p class="formula">1/f = 1/x<sub>2</sub> − 1/x<sub>1</sub> = 1/(−0,4) − 0 = −2,5 m<sup>−1</sup></p>
-          <p><b>Răspuns:</b> C = −2,5 δ, lentilă <b>divergentă</b> cu f = −40 cm.</p>
-        </div>
-      </details>
-      <details class="problem">
-        <summary><span class="problem__n">2</span> Punctum proximum al unui hipermetrop se află la 50 cm. Ce lentile îi permit să citească la 25 cm?</summary>
-        <div class="problem__sol">
-          <p><b>Date:</b> x<sub>1</sub> = −0,25 m (cartea), x<sub>2</sub> = −0,5 m (imaginea trebuie să fie în PP).</p>
-          <p class="formula">1/f = 1/(−0,5) − 1/(−0,25) = −2 + 4 = 2 m<sup>−1</sup></p>
-          <p><b>Răspuns:</b> C = +2 δ, lentilă <b>convergentă</b> cu f = 50 cm.</p>
-        </div>
-      </details>
-      <details class="problem">
-        <summary><span class="problem__n">3</span> Un ochi are convergența de 60 δ. Purtând o lentilă de −3 δ, care este convergența sistemului?</summary>
-        <div class="problem__sol">
-          <p>Pentru lentile alipite, convergențele se adună:</p>
-          <p class="formula">C = C<sub>ochi</sub> + C<sub>lentilă</sub> = 60 + (−3) = 57 δ</p>
-          <p>Distanța focală a sistemului: f = 1/57 m ≈ 17,5 mm. Ochiul miop era „prea convergent”; lentila divergentă reduce convergența astfel încât focarul să ajungă pe retină.</p>
-        </div>
-      </details>
-      <details class="problem">
-        <summary><span class="problem__n">4</span> Un copac înalt de 10 m se află la 20 m de ochi. Ce înălțime are imaginea lui pe retină? (distanța cristalin–retină ≈ 17 mm)</summary>
-        <div class="problem__sol">
-          <p>Folosim mărirea liniară: β = y<sub>2</sub>/y<sub>1</sub> = x<sub>2</sub>/x<sub>1</sub>.</p>
-          <p class="formula">y<sub>2</sub> = y<sub>1</sub> · x<sub>2</sub>/x<sub>1</sub> = 10 m · 0,017 m / (−20 m) = −0,0085 m</p>
-          <p><b>Răspuns:</b> |y<sub>2</sub>| ≈ 8,5 mm. Semnul minus arată că imaginea este <b>răsturnată</b> — creierul o „întoarce”.</p>
-        </div>
-      </details>
-      <details class="problem">
-        <summary><span class="problem__n">5</span> Un bunic de 60 de ani are punctum proximum la 2 m. Ce ochelari îi trebuie pentru a citi la 25 cm?</summary>
-        <div class="problem__sol">
-          <p class="formula">C = 1/0,25 − 1/2 = 4 − 0,5 = 3,5 δ</p>
-          <p><b>Răspuns:</b> ochelari de citit cu <b>+3,5 δ</b> (convergenți). Pentru distanță nu are nevoie de ei dacă nu are și alt defect — de aceea se folosesc lentile bifocale sau progresive.</p>
-        </div>
-      </details>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 9. QUIZ ============ -->
-<section id="quiz" class="section">
-  <div class="container container--narrow">
-    <header class="section__head">
-      <span class="section__num">09</span>
-      <h2>Verifică-ți cunoștințele</h2>
-      <p>10 întrebări despre ochi, defectele de vedere și corecția lor.</p>
-    </header>
-    <div class="quiz card" id="quizBox">
-      <noscript><p>Testul interactiv necesită JavaScript.</p></noscript>
-    </div>
-  </div>
-</section>
-
 <!-- ============ CONCLUZII ============ -->
-<section class="section section--alt" id="concluzii">
+<section class="section section--amber" id="concluzii">
   <div class="container container--narrow">
     <header class="section__head">
-      <span class="section__num">10</span>
+      <span class="section__num">05</span>
       <h2>Concluzii</h2>
     </header>
     <div class="prose">
@@ -773,7 +514,7 @@
 </section>
 
 <!-- ============ BIBLIOGRAFIE ============ -->
-<section class="section" id="bibliografie">
+<section class="section section--green" id="bibliografie">
   <div class="container container--narrow">
     <header class="section__head">
       <h2>Bibliografie</h2>
@@ -784,7 +525,6 @@
       <li>Holden B.A. et al. — <em>Global Prevalence of Myopia and High Myopia and Temporal Trends from 2000 through 2050</em>, Ophthalmology, 2016.</li>
       <li>Hecht E. — <em>Optics</em>, Pearson, ediția a 5-a.</li>
       <li>American Academy of Ophthalmology — materiale informative pentru pacienți (aao.org).</li>
-      <li>Hofstetter H.W. — formula amplitudinii de acomodare în funcție de vârstă, 1950.</li>
     </ol>
   </div>
 </section>
