@@ -522,3 +522,6 @@ input[type=range] { width: 100%; accent-color: var(--accent); height: 28px; }
   .js .reveal { opacity: 1; transform: none; }
   details > *:not(summary) { display: block !important; }
 }
+
+/* secțiunile primesc focus la navigare (accesibilitate), fără contur vizibil */
+section[tabindex="-1"]:focus, main [tabindex="-1"]:focus { outline: none; }

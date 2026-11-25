@@ -36,6 +36,31 @@
     }));
   }
 
+  /* ---------------- Navigare fără „#…” în adresă ---------------- */
+  // Butoanele și meniul derulează la secțiune, dar adresa rămâne curată
+  // (ex. https://….vercel.app în loc de https://….vercel.app/#simulator).
+  const cleanUrl = () => {
+    if (location.hash && history.replaceState) {
+      history.replaceState(null, '', location.pathname + location.search);
+    }
+  };
+  const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.addEventListener('click', e => {
+    const a = e.target.closest && e.target.closest('a[href^="#"]');
+    if (!a || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    const id = a.getAttribute('href').slice(1);
+    const target = id ? document.getElementById(id) : document.body;
+    if (!target) return;
+    e.preventDefault();
+    target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+    if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
+    target.focus({ preventScroll: true });
+    cleanUrl();
+  });
+  // dacă cineva deschide un link vechi cu „#…”, ajunge la secțiune, apoi adresa se curăță
+  window.addEventListener('load', () => setTimeout(cleanUrl, 300));
+  window.addEventListener('hashchange', () => setTimeout(cleanUrl, 300));
+
   /* ---------------- Link activ în meniu ---------------- */
   const links = $$('.nav a');
   const byId = new Map(links.map(a => [a.getAttribute('href').slice(1), a]));
